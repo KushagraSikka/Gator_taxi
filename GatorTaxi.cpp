@@ -1,6 +1,5 @@
 #include "GatorTaxi.h"
 #include <sstream>
-#include <fstream>
 #include <iostream>
 #include <regex>
 
@@ -46,31 +45,43 @@ void GatorTaxi::executeCommand(const std::string &command)
         std::cerr << "Invalid command: " << command << std::endl;
     }
 }
-
-int main(int argc, char *argv[])
+GatorTaxi::GatorTaxi()
 {
-    if (argc != 2)
-    {
-        std::cerr << "Usage: ./gatorTaxi <input_file>" << std::endl;
-        return 1;
-    }
+    // Constructor implementation
+}
 
-    GatorTaxi gatorTaxi;
-    std::string inputFilename(argv[1]);
-    std::ifstream inputFile(inputFilename);
-    std::string command;
+void GatorTaxi::insert(int rideNumber, int rideCost, int tripDuration)
+{
+    // Insert method implementation
+    std::cout << "Insert called with rideNumber: " << rideNumber << ", rideCost: " << rideCost << ", tripDuration: " << tripDuration << std::endl;
+}
 
-    if (!inputFile.is_open())
-    {
-        std::cerr << "Error: Unable to open input file." << std::endl;
-        return 1;
-    }
+void GatorTaxi::print(int rideNumber)
+{
+    // Print method implementation (single rideNumber)
+    std::cout << "Print called with rideNumber: " << rideNumber << std::endl;
+}
 
-    while (std::getline(inputFile, command))
-    {
-        gatorTaxi.executeCommand(command);
-    }
+void GatorTaxi::print(int rideNumber1, int rideNumber2)
+{
+    // Print method implementation (range of rideNumbers)
+    std::cout << "Print called with rideNumber1: " << rideNumber1 << ", rideNumber2: " << rideNumber2 << std::endl;
+}
 
-    inputFile.close();
-    return 0;
+void GatorTaxi::getNextRide()
+{
+    // GetNextRide method implementation
+    std::cout << "getNextRide called" << std::endl;
+}
+
+void GatorTaxi::cancelRide(int rideNumber)
+{
+    // CancelRide method implementation
+    std::cout << "cancelRide called with rideNumber: " << rideNumber << std::endl;
+}
+
+void GatorTaxi::updateTrip(int rideNumber, int newTripDuration)
+{
+    // UpdateTrip method implementation
+    std::cout << "updateTrip called with rideNumber: " << rideNumber << ", newTripDuration: " << newTripDuration << std::endl;
 }

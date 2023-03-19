@@ -1,14 +1,14 @@
 CXX = g++
-CXXFLAGS = -Wall -std=c++11
-TARGET = GatorTaxi
+CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic
 
-all: $(TARGET)
+GatorTaxi_project: GatorTaxi_project.o GatorTaxi.o
+	$(CXX) $(CXXFLAGS) -o GatorTaxi_project GatorTaxi_project.o GatorTaxi.o
 
-$(TARGET): GatorTaxi.o
-	$(CXX) $(CXXFLAGS) -o $(TARGET) GatorTaxi.o
+GatorTaxi_project.o: GatorTaxi_project.cpp GatorTaxi.h
+	$(CXX) $(CXXFLAGS) -c GatorTaxi_project.cpp
 
 GatorTaxi.o: GatorTaxi.cpp GatorTaxi.h
 	$(CXX) $(CXXFLAGS) -c GatorTaxi.cpp
 
 clean:
-	rm -f $(TARGET) *.o
+	rm -f GatorTaxi_project GatorTaxi_project.o GatorTaxi.o
